@@ -1,6 +1,6 @@
-# AngularNgrxUIDemo
+# Easiest Ngrx Demo with little UI state managment like tab, input, select, radio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
+Purpose of this demo is to understand ngrx easily.
 
 ## ngrx/store configuration
 
