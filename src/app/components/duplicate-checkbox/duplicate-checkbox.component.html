@@ -1,0 +1,25 @@
+<div class="content">
+    <div class="row">
+        <div class="form-group col-md-12" *ngIf="checkBoxValue | async; let checkBox">
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="ios" (change)="onChangeCheckBox($event,'ios')" [checked]="checkBox.indexOf('ios') != -1">
+                <label class="form-check-label" for="ios">
+                  ios
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="android" (change)="onChangeCheckBox($event,'android')" [checked]="checkBox.indexOf('android') != -1">
+                <label class="form-check-label" for="android">
+                  Android
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="angular" (change)="onChangeCheckBox($event,'angular')" [checked]="checkBox.indexOf('angular') != -1">
+                <label class="form-check-label" for="angular">
+                    Angular
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

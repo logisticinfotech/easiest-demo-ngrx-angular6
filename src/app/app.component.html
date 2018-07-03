@@ -1,0 +1,22 @@
+<nav class="navbar navbar-dark">
+    <ul class="nav nav-tabs">
+        <li>
+            <a class="nav-link active" [class.active]="router.url === '/tabs'" data-toggle="tab" [routerLink]="['/tabs']">Tabs</a>
+        </li>
+        <li>
+            <a class="nav-link" [class.active]="router.url === '/textfield'" data-toggle="tab" [routerLink]="['/textfield']">TextField</a>
+        </li>
+        <li>
+            <a class="nav-link" [class.active]="router.url === '/select'" data-toggle="tab" [routerLink]="['/select']">Select</a>
+        </li>
+        <li>
+            <a class="nav-link" [class.active]="router.url === '/checkbox'" data-toggle="tab" [routerLink]="['/checkbox']">Checkbox</a>
+        </li>
+        <li>
+            <a class="nav-link" [class.active]="router.url === '/radio'" data-toggle="tab" [routerLink]="['/radio']">Radio</a>
+        </li>
+    </ul>
+
+</nav>
+
+<router-outlet></router-outlet>

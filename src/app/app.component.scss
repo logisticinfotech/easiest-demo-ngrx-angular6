@@ -1,0 +1,24 @@
+.navbar {
+    background-color: #673ab7;
+    ul {
+        li {
+            a {
+                color: white;
+                &.active {
+                    color: #673ab7;
+                    font-weight: 600;
+                    border-radius: .25rem;
+                }
+                &:hover {
+                    border-radius: .25rem;
+                }
+            }
+            margin-right: 2px;
+        }
+        border: none;
+    }
+}
+
+// .footer {
+//     margin-bottom: 0;
+// }

@@ -1,0 +1,18 @@
+<div class="content">
+    <div class="row">
+        <div class="form-group col-md-12" *ngIf="radioValue | async; let radios">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="developer" [checked]="(radioValue | async) == 'developer'" (change)="onChangeRadio($event)">
+                <label class="form-check-label" for="developer">
+                  Devloper
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="designer" [checked]="(radioValue | async) == 'designer'" (change)="onChangeRadio($event)">
+                <label class="form-check-label" for="designer">
+                  Designer
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

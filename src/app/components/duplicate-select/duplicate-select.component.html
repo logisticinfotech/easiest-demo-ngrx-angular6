@@ -1,0 +1,6 @@
+<div class="form-group col-md-12">
+
+    <select class="form-control row" id="serviceDropdown" (change)="onChangeSelect($event)">
+                        <option *ngFor="let c of test" [selected]="c.id == (selectedValue | async)"  value={{c.id}}> {{c.text}}</option>
+                    </select>
+</div>
