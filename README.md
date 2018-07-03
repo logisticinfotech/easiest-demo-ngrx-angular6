@@ -14,7 +14,7 @@ define `uiState` in ui.state.ts file
 ```
 export interface UIState {
     ...
-    textfieldValue: string;
+    selectedTab: string;
     ...
 }
 ```
@@ -25,19 +25,19 @@ import { Action } from '@ngrx/store';
 
 export const UIActionsTypes = {
     ...
-    TEXTFIELD_CHANGED_ACTION: '[UI] -Textfield value changed-'
+    TAB_CHANGED_ACTION: '[UI] -Tab changed-',
     ...
 };
 
 ...
-export class TextFieldChangedAction implements Action {
-    type = UIActionsTypes.TEXTFIELD_CHANGED_ACTION;
+export class TabChangedAction implements Action {
+    type = UIActionsTypes.TAB_CHANGED_ACTION;
     constructor(public payload: any) { }
 }
 ...
 
 export type UIActions =
-    | TextFieldChangedAction;
+    | TabChangedAction;
 
 ```
 
@@ -48,7 +48,7 @@ import { UIActions, UIActionsTypes } from './ui.actions';
 
 export const appInitialState: UIState = {
     ...
-    textfieldValue: '',
+    selectedTab: 'nav-tab1-tab',
     ...
 };
 
@@ -58,10 +58,10 @@ export function uiReducer(state = appInitialState, action: UIActions): UIState {
 
         ...
 
-        case UIActionsTypes.TEXTFIELD_CHANGED_ACTION: {
+        case UIActionsTypes.TAB_CHANGED_ACTION: {
             return Object.assign(state, {
                 ...state,
-                textfieldValue: action.payload
+                selectedTab: action.payload
             });
         }
 
@@ -107,51 +107,36 @@ imports: [
 
 ## How to use in component
 
-To access `textfieldValue` property form store in your component file...
+To access `selectedTab` property form store in your component file...
 
 ```
 
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.state';
 
-export class TextfieldComponent implements OnInit {
-    txtfieldValue: Observable<string>;
+export class TabsComponent implements OnInit {
+    selectedTab: Observable<string>;
 
     constructor(private store: Store<AppState>) {
-        this.txtfieldValue = this.store.select(state => state.ui.textfieldValue);
+        this.selectedTab = this.store.select(state => state.ui.selectedTab);
     }
 
-     onChangeModelValue(event) {
-        this.store.dispatch(new TextFieldChangedAction(event));
+    onChangeTab(id) {
+        this.store.dispatch(new TabChangedAction(id));
     }
 }
 ```
 
-in textfield.component.html
+in tabs.component.html
 ```
-<input type="email" [ngModel]="txtfieldValue | async" (ngModelChange)="onChangeModelValue($event)">
+<a class="nav-item nav-link" [class.active]="(selectedTab | async) === 'nav-tab1-tab'" id="nav-tab1-tab" data-toggle="tab" href="#nav-tab1" role="tab" aria-controls="nav-tab1" aria-selected="true" (click)="onChangeTab('nav-tab1-tab')">Tab 1</a>
 ```
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Checkout full blog [here](https://www.logisticinfotech.com/blog/easiest-demo-to-learn-ngrx-in-angular-6).
