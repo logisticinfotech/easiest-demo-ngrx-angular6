@@ -1,6 +1,6 @@
 # Easiest Ngrx Demo with little UI state managment like tab, input, select, radio
 
-Purpose of this demo is to understand ngrx easily.
+Purpose of this demo is to understand ngrx easily. You can find step by step guide [here](https://www.logisticinfotech.com/blog/easiest-demo-to-learn-ngrx-in-angular-6) to understand this demo properly. 
 
 ## ngrx/store configuration
 
